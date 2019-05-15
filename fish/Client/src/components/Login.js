@@ -4,7 +4,8 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { setAuthenticationHeader } from '../utils/authenticate'
 
-export class Login extends Component {
+
+class Login extends Component {
 
     constructor() {
       super()
@@ -17,20 +18,20 @@ export class Login extends Component {
 
     handleLoginClick = () => {
 
-      axios.post('http://localhost:8080/login', {
-        username: this.state.name,
-        email: this.state.email,
-        password: this.state.password
-      }).then(response => {
+    axios.post('http://localhost:8080/login',{
+    username: this.state.username,
+    password: this.state.password
+  }).then(response => {
 
-        let token = response.data.token
-        console.log(token)
+    let token = response.data.token
+    let id = response.data.id
 
-        localStorage.setItem('jsonwebtoken', token)
-        this.props.onAuthenticated(token)
-        setAuthenticationHeader(token)
-      }).catch(error => console.log(error))
-    }
+    localStorage.setItem('jsonwebtoken',token)
+    localStorage.setItem('userId', id)
+    this.props.onAuthenticated(token,id)
+    setAuthenticationHeader(token)
+  }).catch(error => console.log(error))
+  }
 
 
     handleTextBoxChange = (e) => {
@@ -47,7 +48,6 @@ export class Login extends Component {
       <input name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
       <input name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>
       <button onClick={this.handleLoginClick}>Login</button>
-      <Registration />
       </div>
     )
   }
@@ -55,7 +55,7 @@ export class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAuthenticated: (token) => dispatch({type: 'ON_AUTHENTICATED', token:token})
+    onAuthenticated: (token, id) => dispatch({type: 'ON_AUTHENTICATED', token:token, id:id})
   }
 }
 

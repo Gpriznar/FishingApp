@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {AddNewFish} from './components/AddNewFish'
-import {PreviousFishList} from './components/PreviousFishList'
-import {Login} from './components/Login'
+import Login from './components/Login'
+import Registration from './components/Registration'
 import './App.css';
 
 class App extends Component {
@@ -10,6 +9,7 @@ class App extends Component {
       return (
         <div>
         <Login />
+        <Registration />
         </div>
       )
     }

@@ -1,29 +1,55 @@
-import React, {Component} from 'react'
-import {NavLink} from 'react-router-dom'
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export class Menu extends Component {
+
+
+
+class Menu extends Component {
+
+  handleLogoutClick = () => {
+    console.log(this.props.isAuthenticated)
+    localStorage.removeItem('jsonwebtoken')
+    this.props.logout()
+    this.props.history.push('/')
+    console.log('Log out successful')
+  }
 
   render() {
     return(
       <ul>
-        <li><button><NavLink to='/addnewfish'>Add Fish</NavLink></button></li>
-        <li><button><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li>
-        <li><button><NavLink to='/weather'>Weather Forecast</NavLink></button></li>
-        <li><button><NavLink to='/graph'>Graph Data</NavLink></button></li>
-        <li><button><NavLink to='/heatmap'>Heat Map</NavLink></button></li>
-        <li><button><NavLink to='/login'>Logout</NavLink></button></li>
+        {this.props.isAuthenticated ? <li><button><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li><button><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li><button><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li><button><NavLink to='/graph'>Graph Data</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li><button><NavLink to='/heatmap'>Heat Map</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li><button onClick ={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null }
       </ul>
     )
   }
 }
 
-export class BaseLayout extends Component {
+class BaseLayout extends Component {
   render () {
     return (
       <div>
-        <Menu />
+        <Menu isAuthenticated={this.props.isAuthenticated} logout={this.props.onLogout} history={this.props.history}/>
         {this.props.children}
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.isAuthenticated
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch({type: 'LOGOUT'})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BaseLayout)

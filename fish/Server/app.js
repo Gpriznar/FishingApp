@@ -8,57 +8,56 @@ const PORT = 8080
 const bcrypt = require('bcrypt')
 const saltRounds = 10
 
-app.use(cors())
 app.use(bodyParser.json())
+app.use(cors())
+
 
 //Auth Function
 
 function authenticate(req,res, next) {
+  console.log("hello")
 
-  let headers = req.headers['authorization']
-  let token = headers.split('')[1]
+  let headers = req.headers["authorization"]
+  let token = headers.split(' ')[1]
 
-  jwt.verify(token, 'secret', (err, decoded)=> {
+  jwt.verify(token,'secret',(err, decoded) => {
     if(decoded) {
-      if(decoded.userId) {
-        userId = decoded.userId
+      if(decoded.username) {
         next()
       } else {
-        res.status(401).json({messsage: 'Token Invalid'})
+        res.status(401).json({message: 'Token invalid'})
       }
     } else {
-      res.status(401).json({message: 'Token Invalid'})
+      res.status(401).json({message: 'Token invalid'})
     }
   })
-}
 
+}
 //Login Post
 
 app.post('/login', (req,res) => {
 
   let username = req.body.username
   let password = req.body.password
-  let email = req.body.email
 
-  models.User.findAll({
+  models.User.findOne({
     where: {
-      username: username,
-      password: password
+      name: username
     }
   })
   .then((user) => {
-    console.log(user)
-  if(user) {
 
-    jwt.sign({userId: user}, 'secret', function(err, token) {
-      console.log(user)
-      if(token) {
-        res.json({token: token})
-      } else {
-        res.status(500).json({message: 'Unable to generate token'})
+    bcrypt.compare(password, user.password).then(function(result) {
+      if(result) {
+        jwt.sign({name: user.name}, 'secret', function(err, token) {
+          if(token) {
+          res.json({token: token, id: user.dataValues.id})
+          } else {
+            res.status(500).json({message: 'Unable to generate token'})
+           }
+         })
        }
-     })
-    }
+    })
   })
 })
 
@@ -71,8 +70,6 @@ app.post('/registration', (req, res) => {
     let email = req.body.email
     let password = hash
 
-    console.log(password)
-
     let newUser = models.User.build({
       name: username,
       email: email,
@@ -82,7 +79,7 @@ app.post('/registration', (req, res) => {
       where: {name : req.body.email}
     }).then(function (result) {
       if (null !=result) {
-        console.log('EMAIL ALREADY EXISTS:', result.email);
+        console.log('Email already exists:', result.email);
       }
       else {
         newUser.save().then(function(newUser){
@@ -105,6 +102,8 @@ app.post('/api/AddNewFish', (req,res) => {
   let rod = req.body.rod
   let reel = req.body.reel
   let weather = req.body.weather
+
+  //need to pass userID - End of day Tuesday
 
 
   let addData = models.FishData.build({
@@ -130,6 +129,18 @@ app.post('/api/AddNewFish', (req,res) => {
 app.get('/previousfishlist', async (req,res) => {
   let previousCatches = await models.FishData.findAll()
   res.json(previousLocations)
+})
+
+
+
+//Delete Post
+
+app.post('/delete', (req, res) => {
+  models.FishData.destroy({
+    where: {
+      id: req.body.entryKey
+    }
+  })
 })
 
 //Port

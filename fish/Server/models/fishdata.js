@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
     weather: DataTypes.STRING
   }, {});
   FishData.associate = function(models) {
-    // associations can be defined here
+    FishData.belongsTo(models.User, {
+      as: 'user',
+      foreignKey: 'id',
+      onDelete: 'CASCADE'
+    })
   };
   return FishData;
 };

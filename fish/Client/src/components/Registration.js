@@ -3,7 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { setAuthenticationHeader } from '../utils/authenticate'
 
-export class Registration extends Component {
+class Registration extends Component {
 
   constructor() {
     super()

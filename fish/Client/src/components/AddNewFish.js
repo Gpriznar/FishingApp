@@ -35,7 +35,8 @@ class AddNewFish extends Component {
         linestrength: this.state.linestrength,
         rod: this.state.rod,
         reel: this.state.reel,
-        weather: this.state.weather
+        weather: this.state.weather,
+        userid: this.props.id
       })
     }).then(response => response.json())
     .then(result => {
@@ -83,10 +84,17 @@ class AddNewFish extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    id: state.uid
+  }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
     addedFish: (fish) => dispatch({type: 'ADDEDFISH', value: fish})
+
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddNewFish)
+export default connect(mapStateToProps, mapDispatchToProps)(AddNewFish)
