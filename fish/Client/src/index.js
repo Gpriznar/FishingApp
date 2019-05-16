@@ -11,7 +11,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import AddNewFish from './components/AddNewFish'
 import BaseLayout from './components/BaseLayout'
 import Login from './components/Login'
-import {Weather} from './components/Weather'
+import Weather from './components/Weather'
 import PreviousFishList from './components/PreviousFishList'
 import Map from './components/Map'
 

@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import './Weather.css';
 
-export class Weather extends Component {
+class Weather extends Component {
   constructor() {
     super()
 
@@ -12,9 +14,10 @@ export class Weather extends Component {
   }
 
 
+
   handleWeatherClick = () =>{
 
-    axios.get(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zipcode},us&APIID=1a58f63ba901c71f51ab6e02fdfe37e2`)
+    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zipcode},us&units=imperial&appid=3226cf76708d38911413730b921d802c`,{crossdomain:true})
     .then(response => {
       console.log(response)
       this.setState({weather: response.data.list})
@@ -31,20 +34,53 @@ export class Weather extends Component {
 
   render() {
 
-    const weatherinfo = this.state.weather.map((info) => {
-      return(
-          <div>
-          <p>{info.temp}</p>
+    const weatherinfo = this.state.weather.map((info, index) => {
+      if (index == 0 || index == 8 || index == 16)
+
+      {return(
+          <div className='weatherList' >
+          <ul>
+          <li className= 'weatherListItems'>
+          <p>Date/Time: {info.dt_txt}</p>
+          <p>Current Temperature: {info.main.temp}°</p>
+          <p>Temperature High: {info.main.temp_max}°</p>
+          <p>Temperature Low: {info.main.temp_min}°</p>
+          <p>Humidity: {info.main.humidity}</p>
+          <p>Atmospheric Pressure: {info.main.pressure} mbar</p>
+          <p>Weather Conditions: {info.weather[0].main}</p>
+          <p>Weather Details: {info.weather[0].description}</p>
+          <p>Wind Speed: {info.wind.speed} mph</p>
+          </li>
+          </ul>
           </div>
       )
+    }
   })
 
     return(
-      <div>
+      <div className="weatherSearch">
       <h1>Weather Forecast</h1>
       <input name="zipcode" onChange={this.handleTextBoxChange} placeholder="Enter Zipcode"></input>
       <button onClick={this.handleWeatherClick}>Submit</button>
+      {weatherinfo}
       </div>
     )
+  }
 }
+
+const mapStateToProps = (state) => {
+  return {
+
+    weather: state.currentWeather
+
+  }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    dispatchWeather: (weather) => {dispatch({type: 'CURRENTWEATHER', value: weather})
+    }
+  })
+}
+
+export default connect(null, mapDispatchToProps)(Weather)

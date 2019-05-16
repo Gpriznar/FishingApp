@@ -1,7 +1,5 @@
-body {
-  background-color: grey;
-}
-
-.mapmarker {
- src: url('/Fishmarker.png');
+.mapBox {
+  display:flex;
+  justify-content:center;
+  padding: 2%;
 }

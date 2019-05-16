@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { setAuthenticationHeader } from '../utils/authenticate'
+import './Registration.css';
 
 class Registration extends Component {
 
@@ -44,13 +45,15 @@ class Registration extends Component {
 
   render() {
     return(
-      <div>
-      <h1>Register</h1>
+      <div className="registrationbox">
+      <h2>Register</h2>
       <p>Please use a valid email account to register</p>
-      <input name="email" onChange={this.handleTextBoxChange} placeholder="Email Address"></input>
-      <input name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
-      <input name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>
-      <button onClick={this.handleRegistrationClick}>Register</button>
+        <div className="registrationinputsbox">
+          <input className="registrationinputfield" name="email" onChange={this.handleTextBoxChange} placeholder="Email Address"></input>
+          <input className="registrationinputfield" name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
+          <input className="registrationinputfield" name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>
+          <button className="registrationbutton" onClick={this.handleRegistrationClick}>Register</button>
+        </div>
       </div>
     )
   }

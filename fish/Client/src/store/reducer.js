@@ -1,7 +1,8 @@
 const initialState = {
   isAuthenticated: false,
   fishes: [],
-  uid: 0
+  uid: 0,
+  currentWeather: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +22,11 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       isAuthenticated: false
+    }
+    case 'CURRENTWEATHER':
+    return {
+      ...state,
+      currentWeather: state.currentWeather.concat(action.value)
     }
   }
   return state

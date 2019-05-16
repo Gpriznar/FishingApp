@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import './AddNewFish.css';
 
 class AddNewFish extends Component {
   constructor() {
@@ -68,18 +69,20 @@ class AddNewFish extends Component {
 
   render() {
     return(
-      <div>
-      <h1>Congratulations Angler! You caught a fish!</h1>
-      <p>Fill out as much or as alittle of the following form to save your catch in our database. The app will automatically save your GPS coordinates and time of day when you submit the form</p>
-      <input name="fishname" onChange={this.handleTextBoxChange} placeholder="Name or Species of Fish"></input>
-      <input name="lurebait" onChange={this.handleTextBoxChange} placeholder="Type of Lure or Bait"></input>
-      <input name="linestrength" onChange={this.handleTextBoxChange} placeholder="Line Strength"></input>
-      <input name="rod" onChange={this.handleTextBoxChange} placeholder="Type of Rod"></input>
-      <input name="reel" onChange={this.handleTextBoxChange} placeholder="Type of Reel"></input>
-      <input name="fishsize" onChange={this.handleTextBoxChange} placeholder="Size of your fish"></input>
-      <input name="weather" onChange={this.handleTextBoxChange} placeholder="Current Weather Conditions"></input>
-      <button onClick={this.handleAddCatchClick}>Save Catch!</button>
-      <label>{this.state.message}</label>
+      <div className="newFishBox">
+        <h1 className="congratsText">Congratulations! You caught a fish!</h1>
+        <p>Fill out as much or as alittle of the following form to save your catch in our database. The app will automatically save your GPS coordinates and time of day when you submit the form</p>
+          <div className="newFishInput">
+          <input className="fishInput" name="fishname" onChange={this.handleTextBoxChange} placeholder="Name or Species of Fish"></input>
+          <input className="fishInput" name="lurebait" onChange={this.handleTextBoxChange} placeholder="Type of Lure or Bait"></input>
+          <input className="fishInput" name="linestrength" onChange={this.handleTextBoxChange} placeholder="Line Strength"></input>
+          <input className="fishInput" name="rod" onChange={this.handleTextBoxChange} placeholder="Type of Rod"></input>
+          <input className="fishInput" name="reel" onChange={this.handleTextBoxChange} placeholder="Type of Reel"></input>
+          <input className="fishInput" name="fishsize" onChange={this.handleTextBoxChange} placeholder="Size of your fish"></input>
+          <input className="fishInput" name="weather" onChange={this.handleTextBoxChange} placeholder="Current Weather Conditions"></input>
+          <button className="fishButton" onClick={this.handleAddCatchClick}>Save Catch!</button>
+          <label>{this.state.message}</label>
+          </div>
       </div>
     )
   }

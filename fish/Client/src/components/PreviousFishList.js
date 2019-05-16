@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import './PreviousFishList.css';
 
 class PreviousFishList extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class PreviousFishList extends Component {
     console.log(this.state.fish)
     const fishes = this.state.fish
     let fishData = fishes.map((fish) => {
-      return <li key={fish.id}>
+      return <li className="fishLI" key={fish.id}>
       <h2>{fish.fishname}</h2>
       <p>Weight: {fish.fishsize}</p>
       <p>Type of Lure or Bait: {fish.lurebait}</p>
@@ -34,15 +35,16 @@ class PreviousFishList extends Component {
       <p>Type of rod: {fish.rod}</p>
       <p>Type of reel: {fish.reel}</p>
       <p>Weather Conditions: {fish.weather}</p>
-      <a href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} target="_blank">Where did you catch this fish?</a>
-      <button onClick={() => this.deleteFish(fish)}>Delete Fish</button>
+      <p>Time and Date: {fish.createdAt}</p>
+      <a className="locationButton" href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} target="_blank"><img src="./worldwide.png" /></a>
+      <button className="deleteButton" onClick={() => this.deleteFish(fish)}><img src="./clear.png" /></button>
       </li>
     })
 
     return(
-      <div>
+      <div className="previousFishBox">
       <h1>Previous Catches</h1>
-      <ul>{fishData}</ul>
+      <ul className="fishUL">{fishData}</ul>
       </div>
     )
   }

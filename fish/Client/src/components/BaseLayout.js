@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
+import './BaseLayout.css';
 
 
 class Menu extends Component {
@@ -16,13 +17,15 @@ class Menu extends Component {
 
   render() {
     return(
-      <ul>
-        {this.props.isAuthenticated ? <li><button><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li><button><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li><button><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li><button><NavLink to='/heatmap'>Heat Map</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li><button onClick ={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null }
+      <div className="navMenu">
+      <ul className="navUL">
+        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/heatmap'>Heat Map</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton" onClick ={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null }
       </ul>
+      </div>
     )
   }
 }
@@ -30,7 +33,7 @@ class Menu extends Component {
 class BaseLayout extends Component {
   render () {
     return (
-      <div>
+      <div className="baselayoutbox">
         <Menu isAuthenticated={this.props.isAuthenticated} logout={this.props.onLogout} history={this.props.history}/>
         {this.props.children}
       </div>

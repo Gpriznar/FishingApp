@@ -5,17 +5,13 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import './Map.css';
 
-// function redraw({project}) {
-//   const [cx, cy] = project([-130, 37]);
-//   return <circle cx={cx} cy={cy} r={4} fill="blue" />;
-// }
 
 export class Map extends Component {
 
   state = {
     viewport: {
-      width: 800,
-      height: 800,
+      width: 400,
+      height: 400,
       latitude: 35.0,
       longitude: -100.0,
       zoom: 3
@@ -45,10 +41,12 @@ export class Map extends Component {
     })
 
     return (
+      <div className="mapBox">
       <ReactMapGL mapboxApiAccessToken='pk.eyJ1IjoiZ3ByaXpuYXIiLCJhIjoiY2p2cGpxYWM5MmE4NDQ4cWxiY3N0bTFlOSJ9.zjGnBTabn9sRQIZ6C2FjRw'
         {...this.state.viewport} onViewportChange={(viewport) => this.setState({viewport})}>
         {fishData}
       </ReactMapGL>
+      </div>
     );
   }
 }

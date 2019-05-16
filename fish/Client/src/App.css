@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+
+.loginBox {
+  background-image: url(https://images.pexels.com/photos/69224/pexels-photo-69224.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  margin-left: 15%;
+  margin-right: 15%;
+
+}

@@ -3,6 +3,7 @@ import {Registration} from './Registration'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { setAuthenticationHeader } from '../utils/authenticate'
+import './Login.css';
 
 
 class Login extends Component {
@@ -12,7 +13,8 @@ class Login extends Component {
 
       this.state = {
         username: '',
-        password: ''
+        password: '',
+        message: ''
       }
     }
 
@@ -42,12 +44,16 @@ class Login extends Component {
 
   render() {
     return(
-      <div>
-      <h1>Login</h1>
-      <p>If this is your first time using Fishing App please register before attempting to login</p>
-      <input name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
-      <input name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>
-      <button onClick={this.handleLoginClick}>Login</button>
+      <div className="loginbox">
+      <h1> Welcome to Fish App </h1>
+      <h2>Login</h2>
+      <p>If this is your first time using Fish App please register before attempting to login</p>
+          <div className="logininputsbox">
+        <input className="logininputfield" name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
+        <input className="logininputfield" name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>
+        <button className="loginbutton" onClick={this.handleLoginClick}>Login</button>
+        <label>{this.state.message}</label>
+          </div>
       </div>
     )
   }
