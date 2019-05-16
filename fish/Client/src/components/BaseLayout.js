@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
-
-
+import { withRouter } from 'react-router-dom'
 
 
 class Menu extends Component {
@@ -21,7 +20,6 @@ class Menu extends Component {
         {this.props.isAuthenticated ? <li><button><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li><button><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li><button><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li><button><NavLink to='/graph'>Graph Data</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li><button><NavLink to='/heatmap'>Heat Map</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li><button onClick ={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null }
       </ul>
@@ -52,4 +50,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BaseLayout)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(BaseLayout))

@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import reducer from './store/reducer'
-import RequireAuth from './components/RequireAuth'
+import requireAuth from './components/requireAuth'
 import {Provider} from 'react-redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import AddNewFish from './components/AddNewFish'
@@ -13,8 +13,7 @@ import BaseLayout from './components/BaseLayout'
 import Login from './components/Login'
 import {Weather} from './components/Weather'
 import PreviousFishList from './components/PreviousFishList'
-import {Graph} from './components/Graph'
-import {Heatmap} from './components/Heatmap'
+import Map from './components/Map'
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -27,9 +26,7 @@ ReactDOM.render(
       <Route path ='/addnewfish' component={AddNewFish} />
       <Route path ='/previousfishlist' component={PreviousFishList} />
       <Route path ='/weather' component={Weather} />
-      <Route path ='/login' component={App} />
-      <Route path ='/graph' component={Graph} />
-      <Route path ='/heatmap' component={Heatmap} />
+      <Route path ='/heatmap' component={Map} />
     </Switch>
     </BaseLayout>
     </BrowserRouter>

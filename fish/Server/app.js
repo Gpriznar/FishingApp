@@ -90,6 +90,19 @@ app.post('/registration', (req, res) => {
   })
 })
 
+//AllFish Map
+
+app.post('/allfish', (req,res)=>{
+  models.FishData.findAll({
+    where: {userId: req.body.userId},
+    attributes: ['latitude', 'longitude']
+  }).then(function(result) {
+    console.log(result)
+    res.json(result)
+  })
+})
+
+
 //AddNewFish Post
 
 app.post('/api/AddNewFish', (req,res) => {
@@ -102,6 +115,7 @@ app.post('/api/AddNewFish', (req,res) => {
   let rod = req.body.rod
   let reel = req.body.reel
   let weather = req.body.weather
+  let userId = req.body.userId
 
   //need to pass userID - End of day Tuesday
 
@@ -115,7 +129,8 @@ app.post('/api/AddNewFish', (req,res) => {
     linestrength: linestrength,
     rod: rod,
     reel: reel,
-    weather: weather
+    weather: weather,
+    userId: userId
 
   })
   addData.save()
@@ -126,9 +141,18 @@ app.post('/api/AddNewFish', (req,res) => {
 
 //PreviousFishList Get
 
-app.get('/previousfishlist', async (req,res) => {
-  let previousCatches = await models.FishData.findAll()
-  res.json(previousLocations)
+app.get('/previousfishlist/:userid', async (req,res) => {
+  let userid = req.params.userid
+  let previousCatches = await models.FishData.findAll({
+    where: {userId: userid}
+  }).then(function (result) {
+    if (!result) {
+    console.log("You have no previous catches!")
+    }
+    else {
+      res.json(result)
+    }
+  })
 })
 
 

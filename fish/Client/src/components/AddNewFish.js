@@ -36,7 +36,7 @@ class AddNewFish extends Component {
         rod: this.state.rod,
         reel: this.state.reel,
         weather: this.state.weather,
-        userid: this.props.id
+        userId: this.props.id
       })
     }).then(response => response.json())
     .then(result => {
