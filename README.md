@@ -11,6 +11,7 @@ This application is not yet hosted online so you'll need to follow these steps t
 # Login/Credentials
 
 Username: Admin
+
 Password: 123
 
 
@@ -30,17 +31,20 @@ HTML, CSS, JavaScript, React.js, Redux, Node,js, Express, Sequelize, Uber's Reac
  
 **Previous Fish**
 <img src="=Images/Previous.png"/>
+
 <p> On this component the user can see a list of all their previous catches including the geolocation data and time of catch. Clicking on the globe icon will open a new tab that shows the exact coordinates of your catch including a satellite image. The red X icon will delete that catch from your Previous Fish list.</p>
 
 
 **Weather**
 <img src="=Images/Weather.png"/>
-The Weather component calls an API using your zipcode to give you a three day forecast of weather conditions that might affect your fishing trip.</p>
+
+<p>The Weather component calls an API using your zipcode to give you a three day forecast of weather conditions that might affect your fishing trip.</p>
 
 **Map**
 <img src="=Images/Map.png"/>
-This map component uses Uber's React Map in order to display all of your catches on an interactive map. Zoom, scroll and traverse the globe as you see a visual representation of your hardwork!
+
+<p>This map component uses Uber's React Map in order to display all of your catches on an interactive map. Zoom, scroll and traverse the globe as you see a visual representation of your hardwork!</p>
 
 **Mobile Responsiveness**
 
-It's safe to assume most fisherman won't be bringing their laptops on their excusions so this application would be best suited for a mobile device, however, responsiveness is not perfect in this iteration. I would most likely rewrite the application using React Native if I revisit this project. 
+<p>It's safe to assume most fisherman won't be bringing their laptops on their excusions so this application would be best suited for a mobile device, however, responsiveness is not perfect in this iteration. I would most likely rewrite the application using React Native if I revisit this project.</p>
