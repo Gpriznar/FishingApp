@@ -22,7 +22,7 @@ HTML, CSS, JavaScript, React.js, Redux, Node,js, Express, Sequelize, Uber's Reac
 **Login**
 <img src="Images/Login.png"/>
 
-<p>The user is prompted to either login or register. Newly registered users are saved in the database and will then be able to login and access the other components. The state is destroyed when you navigate away from the page, logout or refresh the application.</p>
+<p>The user is prompted to either login or register. Newly registered users are saved in the database and will then be able to login and access the other components. The state is destroyed when you navigate away from the page, logout or refresh the application. Passwords are encrypted and securely stored in our database using Bcrypt.</p>
 
 **Add Fish**
 <img src="Images/Fish.png"/>
