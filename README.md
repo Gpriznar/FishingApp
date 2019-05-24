@@ -30,17 +30,19 @@ HTML, CSS, JavaScript, React.js, Redux, Node,js, Express, Sequelize, Uber's Reac
 <p>Here the user is able to save information related to their catch such as type of fish, size, bait/lure used, line strength etc... This data is then saved to the database with an association to the user.</p>
  
 **Previous Fish**
+
 <img src="Images/Previous.png"/>
 
 <p> On this component the user can see a list of all their previous catches including the geolocation data and time of catch. Clicking on the globe icon will open a new tab that shows the exact coordinates of your catch including a satellite image. The red X icon will delete that catch from your Previous Fish list.</p>
 
-
 **Weather**
+
 <img src="Images/Weather.png"/>
 
 <p>The Weather component calls an API using your zipcode to give you a three day forecast of weather conditions that might affect your fishing trip.</p>
 
 **Map**
+
 <img src="Images/Map.png"/>
 
 <p>This map component uses Uber's React Map in order to display all of your catches on an interactive map. Zoom, scroll and traverse the globe as you see a visual representation of your hardwork!</p>
