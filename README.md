@@ -1,4 +1,5 @@
-# Fishing App
+# Fishing App 
+
 This application is a React/Redux project designed to assist fisherman track their catches using geolocation data. It also calls a Weather API to give a three day forecast so you can better plan your fishing trip!
 
 This application is not yet hosted online so you'll need to follow these steps to run the application locally:
