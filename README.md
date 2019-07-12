@@ -2,12 +2,7 @@
 
 This application is a React/Redux project designed to assist fisherman track their catches using geolocation data. It also calls a Weather API to give a three day forecast so you can better plan your fishing trip!
 
-This application is not yet hosted online so you'll need to follow these steps to run the application locally:
-
-1) Navigate to the Server folder and in your terminal install the required packages using "npm install"
-2) After installing the packages type "nodemon app.js" in order to start the server. You should see "Server is running..." in your terminal.
-3) Navigate to the Client folder and in your terminal install the required packages using "npm install"
-4) After installing the packages type "npm start" in order to start the react app. Please run in Google Chrome if this is not already your default browser.
+<a href="https://fishing-journal.herokuapp.com/">Live Link</a>
 
 # Login/Credentials
 
