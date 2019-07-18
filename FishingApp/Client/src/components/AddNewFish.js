@@ -22,7 +22,7 @@ class AddNewFish extends Component {
 
 
   handleAddCatchClick = () => {
-    fetch('http://localhost:8080/api/addnewfish', {
+    fetch('https://fishing-app-backend-server.herokuapp.com/api/addnewfish', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ class AddNewFish extends Component {
           <input className="fishInput" name="fishsize" onChange={this.handleTextBoxChange} placeholder="Size of your fish"></input>
           <input className="fishInput" name="weather" onChange={this.handleTextBoxChange} placeholder="Current Weather Conditions"></input>
           <button className="fishButton" onClick={this.handleAddCatchClick}>Save Catch!</button>
-          <label>{this.state.message}</label>
+          <label className="saveCatchMessage">{this.state.message}</label>
           </div>
       </div>
     )

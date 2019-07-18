@@ -12,7 +12,7 @@ class PreviousFishList extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8080/previousfishlist/${this.props.userId}`)
+    fetch(`https://fishing-app-backend-server.herokuapp.com/previousfishlist/${this.props.userId}`)
     .then(response => response.json())
     .then(data => {
       this.setState({
@@ -55,7 +55,7 @@ class PreviousFishList extends Component {
         entryKey: fish.id
     }
     console.log(delId)
-    fetch("http://localhost:8080/delete", {
+    fetch("https://fishing-app-backend-server.herokuapp.com/delete", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(delId)

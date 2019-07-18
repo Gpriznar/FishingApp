@@ -43,3 +43,7 @@
   background-image: linear-gradient(to top, #82bede, #36a7ba, #008f89, #00744e, #05570a);
   text-decoration: none;
 }
+
+.saveCatchMessage {
+  margin-top: 5%;
+}

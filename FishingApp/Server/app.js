@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const models = require('./models')
-const PORT = 8080
+
 const bcrypt = require('bcrypt')
 const saltRounds = 10
 
@@ -33,6 +33,11 @@ function authenticate(req,res, next) {
   })
 
 }
+
+
+app.get('/', (req, res) => {
+  res.send('Ello Gregory')
+})
 //Login Post
 
 app.post('/login', (req,res) => {
@@ -70,19 +75,22 @@ app.post('/registration', (req, res) => {
     let email = req.body.email
     let password = hash
 
-    let newUser = models.User.build({
-      name: username,
-      email: email,
-      password: password
-    })
+
     models.User.findOne({
-      where: {name : req.body.email}
+      where: {email : req.body.email}
     }).then(function (result) {
       if (null !=result) {
         console.log('Email already exists:', result.email);
       }
       else {
+        let newUser = models.User.build({
+          name: username,
+          email: email,
+          password: password
+        })
+
         newUser.save().then(function(newUser){
+          res.json({success: true, message:'You have successfully registered. Please attempt to login!'})
 
         })
       }
@@ -168,6 +176,7 @@ app.post('/delete', (req, res) => {
 })
 
 //Port
+const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
   console.log('Server is running...')

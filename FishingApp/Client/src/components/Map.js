@@ -20,7 +20,7 @@ export class Map extends Component {
   };
 
   componentDidMount() {
-    axios.post('http://localhost:8080/allfish',{
+    axios.post('https://fishing-app-backend-server.herokuapp.com/allfish',{
       userId: this.props.userId
     })
     .then(response => response.data)

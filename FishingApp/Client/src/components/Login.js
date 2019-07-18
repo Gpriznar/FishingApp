@@ -20,7 +20,7 @@ class Login extends Component {
 
     handleLoginClick = () => {
 
-    axios.post('http://localhost:8080/login',{
+    axios.post('https://fishing-app-backend-server.herokuapp.com/login',{
     username: this.state.username,
     password: this.state.password
   }).then(response => {
@@ -45,9 +45,9 @@ class Login extends Component {
   render() {
     return(
       <div className="loginbox">
-      <h1> Welcome to Fish App </h1>
+      <h1> Welcome to Fishing Journal </h1>
       <h2>Login</h2>
-      <p>If this is your first time using Fish App please register before attempting to login</p>
+      <p>If this is your first time using Fishing App please register before attempting to login</p>
           <div className="logininputsbox">
         <input className="logininputfield" name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
         <input className="logininputfield" name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>

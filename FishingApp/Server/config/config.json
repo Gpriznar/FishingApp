@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "nuyjlqiu",
+    "password": "C4DkexIO5RnyJqaUEi6JU41mhMUKDHaX",
+    "database": "nuyjlqiu",
+    "host": "isilo.db.elephantsql.com",
+    "dialect": "postgres"
   }
 }

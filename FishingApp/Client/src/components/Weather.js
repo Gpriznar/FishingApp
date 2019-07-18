@@ -35,7 +35,7 @@ class Weather extends Component {
   render() {
 
     const weatherinfo = this.state.weather.map((info, index) => {
-      if (index == 0 || index == 8 || index == 16)
+      if (index === 0 || index === 8 || index === 16)
 
       {return(
           <div className='weatherList' >

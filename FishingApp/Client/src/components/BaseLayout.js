@@ -22,7 +22,7 @@ class Menu extends Component {
         {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/heatmap'>Heat Map</NavLink></button></li> : null }
+        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/heatmap'>Map</NavLink></button></li> : null }
         {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton" onClick ={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null }
       </ul>
       </div>

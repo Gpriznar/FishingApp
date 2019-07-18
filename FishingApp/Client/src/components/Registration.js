@@ -12,12 +12,13 @@ class Registration extends Component {
     this.state = {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      message: ''
     }
   }
 
   handleRegistrationClick = () => {
-    fetch('http://localhost:8080/registration', {
+    fetch('https://fishing-app-backend-server.herokuapp.com/registration', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -53,7 +54,9 @@ class Registration extends Component {
           <input className="registrationinputfield" name="username" onChange={this.handleTextBoxChange} placeholder="User Name"></input>
           <input className="registrationinputfield" name="password" onChange={this.handleTextBoxChange} placeholder="Password"></input>
           <button className="registrationbutton" onClick={this.handleRegistrationClick}>Register</button>
+          <label className="registrationSuccess">{this.state.message}</label>
         </div>
+        <label className="registrationSuccess">{this.state.message}</label>
       </div>
     )
   }
