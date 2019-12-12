@@ -45,4 +45,4 @@ HTML, CSS, JavaScript, React.js, Redux, Node,js, Express, Sequelize, Uber's Reac
 
 **Mobile Responsiveness**
 
-<p>It's safe to assume most fisherman won't be bringing their laptops on their excusions so this application would be best suited for a mobile device, however, responsiveness is not perfect in this iteration. I would most likely rewrite the application using React Native if I revisit this project.</p>
+<p>It's safe to assume most fisherman won't be bringing their laptops on their excursions so this application would be best suited for a mobile device, however, responsiveness is not perfect in this iteration. I would most likely rewrite the application using React Native if I revisit this project.</p>
