@@ -21,7 +21,7 @@
   border-style: none;
   background-color: #F9F9F9;
   margin-left: 10px;
-
+  cursor: pointer;
 }
 
 .locationButton {
