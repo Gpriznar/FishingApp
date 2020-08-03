@@ -39,7 +39,6 @@ class Weather extends Component {
 
   render() {
 
-
     const weatherInfo = this.state.weather.map((info, index) => {
 
       if (index === 0 || index === 8 || index === 16) {

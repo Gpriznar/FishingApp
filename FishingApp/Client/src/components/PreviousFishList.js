@@ -25,28 +25,72 @@ class PreviousFishList extends Component {
 
 
   render() {
-    console.log(this.state.fish)
+    // console.log(this.state.fish)
     const fishes = this.state.fish
     let fishData = fishes.map((fish) => {
-      return <li className="fishLI" key={fish.id}>
-        <h2>{fish.fishname}</h2>
-        <p>Weight: {fish.fishsize}</p>
-        <p>Type of Lure or Bait: {fish.lurebait}</p>
-        <p>Line Strength: {fish.linestrength}</p>
-        <p>Type of rod: {fish.rod}</p>
-        <p>Type of reel: {fish.reel}</p>
-        <p>Weather Conditions: {fish.weather}</p>
-        <p>Time and Date: {fish.createdAt}</p>
-        <a className="locationButton" href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank"><img alt='world' src="./worldwide.png" /></a>
-        <button className="deleteButton" onClick={() => this.deleteFish(fish)}><img alt='clear' src="./clear.png" /></button>
-      </li>
+      return (
+        <div className='fishies'>
+          <div className='fish-detail-box'>
+            <li className="fishLI" key={fish.id}>
+              <h2>{fish.fishname}</h2>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Weight:<p> {fish.fishsize}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Type of Lure or Bait:<p> {fish.lurebait}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Line Strength:<p> {fish.linestrength}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Type of rod: <p>{fish.rod}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Type of reel:<p> {fish.reel}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Weather Conditions:<p> {fish.weather}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Time and Date:<p> {fish.createdAt}</p>
+                </div>
+              </div>
+              <div className='fish-buttons'>
+                <a className="locationButton" href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank"><img alt='world' src="./worldwide.png" /></a>
+                <button className="deleteButton" onClick={() => this.deleteFish(fish)}><img alt='clear' src="./clear.png" /></button>
+              </div>
+
+            </li>
+          </div>
+        </div>
+
+
+
+      )
+
     })
 
     return (
-      <div className="previousFishBox">
-        <h1>Previous Catches</h1>
-        <ul className="fishUL">{fishData}{this.state.message}</ul>
+      <div className='complete-display'>
+        <div className="display-fish">
+          <h1>Previous Catches</h1>
+          <ul className="fishUL">{fishData}{this.state.message}</ul>
+        </div>
       </div>
+
     )
   }
 

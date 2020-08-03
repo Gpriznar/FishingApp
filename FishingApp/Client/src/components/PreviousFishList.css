@@ -1,4 +1,4 @@
-.previousFishBox {
+/* .previousFishBox {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -7,22 +7,14 @@
   margin-right: 5%;
 }
 
-.fishUL {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-}
+
+
 
 .description {
   font-weight: bold;
 }
 
-.deleteButton {
-  border-style: none;
-  background-color: #F9F9F9;
-  margin-left: 10px;
-  cursor: pointer;
-}
+
 
 .locationButton {
   margin-right: 10px;
@@ -41,4 +33,65 @@
 
 p {
   padding: 10px;
+} */
+
+.fishies {
+  box-shadow: 1px 1px 3px 2px #dddddd;
+  margin: 10px;
+  display: flex;
+  background-color: lightblue;
+}
+
+.fish-detail-box {
+  display: flex;
+  flex-direction: column;
+}
+.fish-flexing {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+
+.fish-styling {
+  font-weight: bolder;
+  display: flex;
+}
+.display-fish {
+  flex-wrap: wrap;
+  margin: 7px;
+}
+
+.complete-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fish-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.deleteButton {
+  border-style: none;
+  background-color: #F9F9F9;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+
+p {
+  font-weight: 400;
+  margin: 0px;
+  margin-left: 5px;
+}
+
+.fishUL {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
