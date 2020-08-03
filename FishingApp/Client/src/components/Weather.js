@@ -1,7 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import './Weather.css';
+
 
 class Weather extends Component {
   constructor() {
@@ -14,15 +16,15 @@ class Weather extends Component {
   }
 
 
+  handleWeatherClick = () => {
 
-  handleWeatherClick = () =>{
-
-    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zipcode},us&units=imperial&appid=3226cf76708d38911413730b921d802c`,{crossdomain:true})
-    .then(response => {
-      console.log(response)
-      this.setState({weather: response.data.list})
-    })
+    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zipcode},us&units=imperial&appid=3226cf76708d38911413730b921d802c`, { crossdomain: true })
+      .then(response => {
+        console.log(response.data.list)
+        this.setState({ weather: response.data.list })
+      })
   }
+
 
 
   handleTextBoxChange = (e) => {
@@ -35,35 +37,86 @@ class Weather extends Component {
   render() {
 
     const weatherinfo = this.state.weather.map((info, index) => {
-      if (index === 0 || index === 8 || index === 16)
-
-      {return(
-          <div className='weatherList' >
-          <ul>
-          <li className= 'weatherListItems'>
-          <p>Date/Time: {info.dt_txt}</p>
-          <p>Current Temperature: {info.main.temp}°</p>
-          <p>Temperature High: {info.main.temp_max}°</p>
-          <p>Temperature Low: {info.main.temp_min}°</p>
-          <p>Humidity: {info.main.humidity}</p>
-          <p>Atmospheric Pressure: {info.main.pressure} mbar</p>
-          <p>Weather Conditions: {info.weather[0].main}</p>
-          <p>Weather Details: {info.weather[0].description}</p>
-          <p>Wind Speed: {info.wind.speed} mph</p>
-          </li>
-          </ul>
+      console.log(info.weather[0].icon)
+      if (index === 0 || index === 8 || index === 16) {
+        return (
+          <div key={index} className='forecasts'>
+            <div className='weather-icon'>
+              <img alt='weather' src={`http://openweathermap.org/img/wn/${info.weather[0].icon}@4x.png`} />
+            </div>
+            <ul>
+              <li>
+                <div className='forcast-box'>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Date: <p>{moment(info.dt_txt).format('MM/DD/YYYY')}</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Time: <p>{moment(info.dt_txt).format('h:mm A')}</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Current Temperature: <p>{info.main.temp}°</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Temperature High: <p>{info.main.temp_max}°</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Temperature Low: <p>{info.main.temp_min}°</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Humidity: <p>{info.main.humidity}</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Atmospheric Pressure: <p>{info.main.pressure} mbar</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Weather Conditions: <p>{info.weather[0].main}</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Weather Details: <p>{info.weather[0].description}</p>
+                    </div>
+                  </div>
+                  <div className='forcast-flexing'>
+                    <div className='forcast-styling'>
+                      Wind Speed: <p>{info.wind.speed} mph</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-      )
-    }
-  })
+        )
+      }
+    })
 
-    return(
-      <div className="weatherSearch">
-      <h1>Weather Forecast</h1>
-      <input name="zipcode" onChange={this.handleTextBoxChange} placeholder="Enter Zipcode"></input>
-      <button onClick={this.handleWeatherClick}>Submit</button>
-      {weatherinfo}
+    return (
+      <div className='complete-submit'>
+        <h1>Weather Forecast</h1>
+        <div className="forecast-submit">
+          <input name="zipcode" onChange={this.handleTextBoxChange} placeholder="Enter Zipcode"></input>
+          <button onClick={this.handleWeatherClick}>Submit</button>
+        </div>
+        <div className='display-forecasts'>
+          {weatherinfo}
+        </div>
       </div>
+
     )
   }
 }
@@ -78,9 +131,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    dispatchWeather: (weather) => {dispatch({type: 'CURRENTWEATHER', value: weather})
+    dispatchWeather: (weather) => {
+      dispatch({ type: 'CURRENTWEATHER', value: weather })
     }
   })
 }
 
-export default connect(null, mapDispatchToProps)(Weather)
+export default connect(mapStateToProps, mapDispatchToProps)(Weather)
