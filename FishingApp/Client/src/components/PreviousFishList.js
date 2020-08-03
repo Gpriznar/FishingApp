@@ -7,7 +7,8 @@ class PreviousFishList extends Component {
     super()
 
     this.state = {
-      fish: []
+      fish: [],
+      message: ""
     }
   }
 
@@ -44,7 +45,7 @@ class PreviousFishList extends Component {
     return (
       <div className="previousFishBox">
         <h1>Previous Catches</h1>
-        <ul className="fishUL">{fishData}</ul>
+        <ul className="fishUL">{fishData}{this.state.message}</ul>
       </div>
     )
   }
@@ -67,7 +68,9 @@ class PreviousFishList extends Component {
 
     }).then(delId => {
       if (delId === "success") {
-        console.log("success")
+        this.setState({
+          message: "Your fish has been deleted"
+        })
       }
     })
   }
