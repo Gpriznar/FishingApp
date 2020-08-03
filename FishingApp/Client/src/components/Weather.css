@@ -1,4 +1,4 @@
-.weatherListItems {
+/* .weatherListItems {
   list-style: none;
   border-bottom:  2px black;
   border-top: 0;
@@ -17,4 +17,66 @@
   padding: 2%;
   text-align: center;
 
+} */
+.weather-forecast {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.forecasts {
+  box-shadow: 1px 1px 3px 2px #dddddd;
+  margin: 10px;
+  display: flex;
+  background-color: lightblue;
+}
+
+.display-forecasts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 7px;
+}
+
+.forecast-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.complete-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-submit {
+  justify-content: space-evenly;
+}
+
+.forcast-flexing {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+.forcast-styling {
+  font-weight: bolder;
+  display: flex;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0 7px 0 7px;
+}
+p {
+  font-weight: 400;
+  margin: 0px;
+  margin-left: 5px;
+}
+.clear-skies {
+  background-color: #77a7ff;
+  background-image: url('https://img.pngio.com/sunny-icon-512x512-png-weather-png-sunny-480_480.png');
 }
