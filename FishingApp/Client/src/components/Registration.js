@@ -33,6 +33,7 @@ class Registration extends Component {
           this.setState({
             message: result.message,
           });
+
         }
       });
   };

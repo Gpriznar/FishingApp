@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import './BaseLayout.css';
@@ -15,26 +15,27 @@ class Menu extends Component {
     console.log('Log out successful')
   }
 
+
   render() {
-    return(
+    return (
       <div className="navMenu">
-      <ul className="navUL">
-        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/heatmap'>Map</NavLink></button></li> : null }
-        {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton" onClick ={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null }
-      </ul>
+        <ul className="navUL">
+          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/heatmap'>Map</NavLink></button></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton" onClick={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null}
+        </ul>
       </div>
     )
   }
 }
 
 class BaseLayout extends Component {
-  render () {
+  render() {
     return (
       <div className="baselayoutbox">
-        <Menu isAuthenticated={this.props.isAuthenticated} logout={this.props.onLogout} history={this.props.history}/>
+        <Menu isAuthenticated={this.props.isAuthenticated} logout={this.props.onLogout} history={this.props.history} />
         {this.props.children}
       </div>
     )
@@ -49,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLogout: () => dispatch({type: 'LOGOUT'})
+    onLogout: () => dispatch({ type: 'LOGOUT' })
   }
 }
 
