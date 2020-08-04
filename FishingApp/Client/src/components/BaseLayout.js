@@ -20,6 +20,7 @@ class Menu extends Component {
     return (
       <div className="navMenu">
         <ul className="navUL">
+          {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/home'>Home</NavLink></li> : null}
           {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/addnewfish'>Add Fish</NavLink></li> : null}
           {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/previousfishlist'>View All Fish</NavLink></li> : null}
           {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/weather'>Weather Forecast</NavLink></li> : null}

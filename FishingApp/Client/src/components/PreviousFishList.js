@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment';
 import './PreviousFishList.css';
+import {  TwitterShareButton } from 'react-twitter-embed';
+
 
 class PreviousFishList extends Component {
   constructor() {
@@ -76,8 +78,12 @@ class PreviousFishList extends Component {
                 </div>
               </div>
               <div className='fish-buttons'>
-                <a className="locationButton" href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank"><img alt='world' src="./worldwide.png" /></a>
-                <button className="deleteButton" onClick={() => this.deleteFish(fish)}><img alt='clear' src="./clear.png" /></button>
+                <button className="locationButton" href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank">Location</button>
+                <button className="deleteButton" onClick={() => this.deleteFish(fish)}>Delete </button>
+                <TwitterShareButton
+                url={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`}
+                options={{ text: '#fishingjournal Checkout my latest catch!', via: 'Gpriznar' }}
+                />
               </div>
 
             </li>
