@@ -76,8 +76,14 @@ class PreviousFishList extends Component {
                 </div>
               </div>
               <div className='fish-buttons'>
-                <button className='location-button' href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank"> <img src = "pin.png" alt= ''/> Location</button>
-                <button className='delete-button' onClick={() => this.deleteFish(fish)}>  <img src = "close.png" alt= ''/> Delete </button>
+                <button
+                  className='location-button'
+                  href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`}
+                  rel='noopener noreferrer'
+                  target="_blank"> <img src="pin1.png" className='pin-icon' alt='' /> Location</button>
+                <button
+                  className='delete-button'
+                  onClick={() => this.deleteFish(fish)}><img src="close.png" className='x-icon' alt='' /> Delete </button>
                 <TwitterShareButton
                   className='twitter-button'
                   url={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`}

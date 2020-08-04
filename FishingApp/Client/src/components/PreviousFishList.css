@@ -70,18 +70,18 @@ p {
 .fish-buttons {
   display: flex;
   justify-content: space-evenly;
-  margin: 10px;
 }
 .location-button {
   height: 20px;
   background-color: #2fa92f;
+  align-items: center;
   border-style: none;
   border-radius: 3px;
-  align-items: center;
   color: #fff;
-  font-weight: 500;
-
+  font: normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif;
+  font-weight: bolder;
 }
+
 .delete-button {
   height: 20px;
   background-color: red;
@@ -89,7 +89,8 @@ p {
   border-style: none;
   border-radius: 3px;
   color: #fff;
-  font-weight: 500;
+  font: normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif;
+  font-weight: bolder;
 }
 .twitter-button {
   height: 25px;
@@ -106,7 +107,16 @@ p {
 h1, h2 {
   text-align: center;
 }
-
+.pin-icon {
+  height: 14px;
+  width: 14px;
+  margin-right: 3px;
+}
+.x-icon {
+  height: 14px;
+  width: 14px;
+  margin-right: 3px;
+}
 
 p {
   font-weight: 400;
