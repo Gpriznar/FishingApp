@@ -23,7 +23,7 @@ class Weather extends Component {
     })
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zipcode},us&units=imperial&appid=3226cf76708d38911413730b921d802c`, { crossdomain: true })
       .then(response => {
-        // console.log(response.data.list)
+        console.log(response.data.list)
         this.setState({ weather: response.data.list, loading: false })
       })
     console.log(this.state.loading)
@@ -38,9 +38,9 @@ class Weather extends Component {
 
 
   render() {
+    // console.log(this.state.weather)
 
     const weatherInfo = this.state.weather.map((info, index) => {
-
       if (index === 0 || index === 8 || index === 16) {
         return (
 

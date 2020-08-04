@@ -34,9 +34,9 @@ export class Map extends Component {
 
   render() {
 
-    let fishData = this.state.fish.map(data => {
+    let fishData = this.state.fish.map((data, index) => {
       return (
-        <Marker latitude={data.latitude} longitude={data.longitude} offsetLeft={-20} offsetTop={-10}><img alt='fish' src="fish.png"></img></Marker>
+        <Marker key={index} latitude={data.latitude} longitude={data.longitude} offsetLeft={-20} offsetTop={-10}><img alt='fish' src="fish.png"></img></Marker>
       )
     })
 

@@ -33,7 +33,7 @@ class PreviousFishList extends Component {
     const fishes = this.state.fish
     let fishData = fishes.map((fish) => {
       return (
-        <div className='fishies'>
+        <div key={fish.id} className='fishies'>
           <div className='fish-detail-box'>
             <li className="fishLI" key={fish.id}>
               <h2>{fish.fishname}</h2>
