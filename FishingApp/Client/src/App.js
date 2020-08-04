@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login'
 import Registration from './components/Registration'
 import { connect } from 'react-redux';
+import LandingPage from './components/LandingPage';
 
 import './App.css';
 
@@ -14,7 +15,7 @@ class App extends Component {
           <Login />
           <Registration />
         </div>) :
-          <div>Hello and welcome to the fishing journal!</div>
+          <LandingPage />
         }
       </div>
     )
