@@ -26,8 +26,6 @@ class PreviousFishList extends Component {
       })
   }
 
-
-
   render() {
     // console.log(this.state.fish)
     const fishes = this.state.fish
@@ -78,9 +76,10 @@ class PreviousFishList extends Component {
                 </div>
               </div>
               <div className='fish-buttons'>
-                <button className="locationButton" href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank">Location</button>
-                <button className="deleteButton" onClick={() => this.deleteFish(fish)}>Delete </button>
+                <button className='location-button' href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`} rel='noopener noreferrer' target="_blank">Location</button>
+                <button className='delete-button' onClick={() => this.deleteFish(fish)}>Delete </button>
                 <TwitterShareButton
+                  className='twitter-button'
                   url={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`}
                   options={{ text: '#fishingjournal Checkout my latest catch!', via: 'Gpriznar' }}
                 />
