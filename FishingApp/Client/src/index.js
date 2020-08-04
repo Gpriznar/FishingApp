@@ -14,23 +14,34 @@ import BaseLayout from './components/BaseLayout'
 import Weather from './components/Weather'
 import PreviousFishList from './components/PreviousFishList'
 import Map from './components/Map'
+import { BreakpointProvider, setDefaultBreakpoints } from 'react-socks';
+
+setDefaultBreakpoints([
+  { xs: 0 },
+  { s: 376 },
+  { m: 426 },
+  { l: 769 },
+  { xl: 1025 }
+]);
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <BaseLayout>
-        <Switch>
-          <Route exact path='/' component={App} />
-          <Route path='/addnewfish' component={AddNewFish} />
-          <Route path='/previousfishlist' component={PreviousFishList} />
-          <Route path='/weather' component={Weather} />
-          <Route path='/heatmap' component={Map} />
-        </Switch>
-      </BaseLayout>
-    </BrowserRouter>
-  </Provider>
+  <BreakpointProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <BaseLayout>
+          <Switch>
+            <Route exact path='/' component={App} />
+            <Route path='/addnewfish' component={AddNewFish} />
+            <Route path='/previousfishlist' component={PreviousFishList} />
+            <Route path='/weather' component={Weather} />
+            <Route path='/heatmap' component={Map} />
+          </Switch>
+        </BaseLayout>
+      </BrowserRouter>
+    </Provider>
+  </BreakpointProvider>
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
