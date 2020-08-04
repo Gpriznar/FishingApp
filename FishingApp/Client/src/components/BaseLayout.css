@@ -2,17 +2,16 @@
  a {
    font-size: 17px;
  }
-
 }
-
+button {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .navMenu {
   display: flex;
   text-align: center;
   justify-content: center;
-  width: auto;
-  margin-left: -2%;
-
 }
 
 .navLink {
@@ -24,6 +23,14 @@
 .navUL {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.weather-button {
+  display: flex;
+}
+.weather-input {
+  display: flex;
 }
 
 body {

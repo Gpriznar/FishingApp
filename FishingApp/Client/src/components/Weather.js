@@ -114,8 +114,8 @@ class Weather extends Component {
       <div className='complete-submit'>
         <h1>Weather Forecast</h1>
         <div className="forecast-submit">
-          <input name="zipcode" onChange={this.handleTextBoxChange} placeholder="Enter Zipcode"></input>
-          <button onClick={this.handleWeatherClick}>Submit</button>
+          <input name="zipcode" className='weather-input' onChange={this.handleTextBoxChange} placeholder="Enter Zipcode"></input>
+          <button className='weather-button' onClick={this.handleWeatherClick}>Submit</button>
         </div>
         <div className='display-forecasts'>
           {this.state.loading === true ? (<div>Running outside to check, brb</div>) : null}

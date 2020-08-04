@@ -50,6 +50,7 @@
 
 .forecast-submit {
   justify-content: space-evenly;
+  display: flex;
 }
 
 .forcast-flexing {
@@ -73,4 +74,11 @@ p {
   font-weight: 400;
   margin: 0px;
   margin-left: 5px;
+}
+
+.weather-button {
+  display: flex;
+}
+.weather-input {
+  display: flex;
 }
