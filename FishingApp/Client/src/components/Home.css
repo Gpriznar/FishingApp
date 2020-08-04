@@ -1,0 +1,14 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+}
+.embeded-tweet {
+    display: flex;
+    box-shadow: 1px 1px 3px 2px #00000030;
+    margin: 10px;
+}
+.tweet-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
