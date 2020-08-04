@@ -9,7 +9,9 @@
 
 .navLink {
   list-style: none;
+  font-size: 30px;
 }
+
 
 .navUL {
   display: flex;
@@ -17,7 +19,7 @@
 }
 
 body {
-  background-color: #f5f5f7;
+  background-color: #4c92cf;
 }
 
 a{
@@ -25,7 +27,13 @@ a{
   text-decoration: none;
 }
 
+a:hover {
+  color: lightgrey;
+
+}
+
 li {
   margin: 10px;
-  font-size: 30px;
+  font-size: 17px;
 }
+

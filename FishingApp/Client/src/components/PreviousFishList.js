@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment';
 import './PreviousFishList.css';
 
 class PreviousFishList extends Component {
@@ -11,6 +12,7 @@ class PreviousFishList extends Component {
       message: ""
     }
   }
+
 
   componentDidMount() {
     fetch(`https://fishing-app-backend-server.herokuapp.com/previousfishlist/${this.props.userId}`)
@@ -65,7 +67,12 @@ class PreviousFishList extends Component {
               </div>
               <div className='fish-flexing'>
                 <div className='fish-styling'>
-                  Time and Date:<p> {fish.createdAt}</p>
+                  Date:<p> {moment(fish.createdAt).format('MM/DD/YYYY')}</p>
+                </div>
+              </div>
+              <div className='fish-flexing'>
+                <div className='fish-styling'>
+                  Time:<p> {moment(fish.createdAt).format('h:mm A')}</p>
                 </div>
               </div>
               <div className='fish-buttons'>
