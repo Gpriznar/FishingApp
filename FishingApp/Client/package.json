@@ -19,6 +19,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-socks": "^2.1.0",
+    "react-twitter-embed": "^3.0.3",
     "redux": "^4.0.1",
     "webgl-heatmap": "^0.2.3"
   },

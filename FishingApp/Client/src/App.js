@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login'
 import Registration from './components/Registration'
 import { connect } from 'react-redux';
-import LandingPage from './components/LandingPage';
+import Home from './components/Home';
 
 import './App.css';
 
@@ -15,7 +15,7 @@ class App extends Component {
           <Login />
           <Registration />
         </div>) :
-          <LandingPage />
+          <Home />
         }
       </div>
     )

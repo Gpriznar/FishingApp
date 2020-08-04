@@ -95,3 +95,7 @@ p {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.newFishInput {
+  padding-top: 25px;
+}

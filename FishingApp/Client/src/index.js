@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AddNewFish from './components/AddNewFish'
 import BaseLayout from './components/BaseLayout'
 // import Login from './components/Login'
+import Home from './components/Home'
 import Weather from './components/Weather'
 import PreviousFishList from './components/PreviousFishList'
 import Map from './components/Map'
@@ -33,6 +34,7 @@ ReactDOM.render(
         <BaseLayout>
           <Switch>
             <Route exact path='/' component={App} />
+            <Route path='/home' component={Home} />
             <Route path='/addnewfish' component={AddNewFish} />
             <Route path='/previousfishlist' component={PreviousFishList} />
             <Route path='/weather' component={Weather} />
