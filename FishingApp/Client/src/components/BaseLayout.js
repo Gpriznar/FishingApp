@@ -20,11 +20,11 @@ class Menu extends Component {
     return (
       <div className="navMenu">
         <ul className="navUL">
-          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/addnewfish'>Add Fish</NavLink></button></li> : null}
-          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/previousfishlist'>Previously Caught Fish</NavLink></button></li> : null}
-          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/weather'>Weather Forecast</NavLink></button></li> : null}
-          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton"><NavLink to='/heatmap'>Map</NavLink></button></li> : null}
-          {this.props.isAuthenticated ? <li className="navLink"><button className="menuButton" onClick={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></button></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/addnewfish'>Add Fish</NavLink></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/previousfishlist'>View All Fish</NavLink></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/weather'>Weather Forecast</NavLink></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink"><NavLink to='/heatmap'>Map</NavLink></li> : null}
+          {this.props.isAuthenticated ? <li className="navLink" onClick={this.handleLogoutClick}><NavLink to='#'>Logout</NavLink></li> : null}
         </ul>
       </div>
     )

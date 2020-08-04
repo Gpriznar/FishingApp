@@ -32,7 +32,9 @@ class Login extends Component {
       localStorage.setItem('userId', id)
       this.props.onAuthenticated(token, id)
       setAuthenticationHeader(token)
+
     }).catch(error => console.log(error))
+
   }
 
 
