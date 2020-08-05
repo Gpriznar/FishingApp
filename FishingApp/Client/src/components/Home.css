@@ -12,3 +12,8 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.LureBox {
+  width:120px;
+  height:240px;
+}
