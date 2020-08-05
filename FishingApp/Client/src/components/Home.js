@@ -8,9 +8,9 @@ const Home = () => {
     return (
         <div className='home-page'>
             <h1>Fishing Journal</h1>
-            <div>
-            <p> Fishing Journal is an application designed to help fisherman track their catches using geolocation data. Catalog and view your caught fish using our "Add Fish" and "View All Fish" features. Make sure to utilize the Weather search to get a three day forecast so you can better plan your fishing trip!</p>
-             </div>
+            <div className='description'>
+                <p> Fishing Journal is an application designed to help fisherman track their catches using geolocation data. Catalog and view your caught fish using our "Add Fish" and "View All Fish" features. Make sure to utilize the Weather search to get a three day forecast so you can better plan your fishing trip!</p>
+            </div>
             <div className='tweet-flex'>
                 <div className="embeded-tweet">
                     <div className="selfCenter standardWidth">

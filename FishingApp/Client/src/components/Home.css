@@ -17,3 +17,17 @@
   width:120px;
   height:240px;
 }
+
+.description {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+p {
+    font-size: 20px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-bottom: #a59b9b solid 1px;
+    padding-bottom: 10px;
+}
