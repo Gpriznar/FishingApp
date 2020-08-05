@@ -16,6 +16,7 @@ class PreviousFishList extends Component {
   }
 
 
+
   componentDidMount() {
     fetch(`https://fishing-app-backend-server.herokuapp.com/previousfishlist/${this.props.userId}`)
       .then(response => response.json())
@@ -76,10 +77,12 @@ class PreviousFishList extends Component {
                 </div>
               </div>
               <div className='fish-buttons'>
+
                 <a
-                  className='location-button'
+                  className='location-link'
                   href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`}
-                  target="_blank"> <img src="pin.png" className='pin-icon' alt='' /> Location</a>
+                  target="_blank">
+                  <button className='location-button'><img src="pin.png" className='pin-icon' alt='' /> Location</button></a>
                 <button
                   className='delete-button'
                   onClick={() => this.deleteFish(fish)}><img src="close.png" className='x-icon' alt='' /> Delete </button>
@@ -92,7 +95,7 @@ class PreviousFishList extends Component {
 
             </li>
           </div>
-        </div>
+        </div >
 
 
 
@@ -101,7 +104,7 @@ class PreviousFishList extends Component {
     })
 
     return (
-      <div className='complete-display'>
+      <div className='complete-display' >
         <div className="display-fish">
           <h1>Previous Catches</h1>
           <ul className="fishUL">{fishData}{this.state.message}</ul>

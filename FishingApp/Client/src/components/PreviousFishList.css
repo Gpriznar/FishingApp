@@ -62,12 +62,29 @@
 }
 .location-button:hover {
   cursor: pointer;
-  background-color: #248624
+  background-color: #248624;
+  text-decoration: none;
 }
+.location-link {
+  color: #fff;
+  text-decoration: none;
+
+}
+.location-link:hover {
+  text-decoration: none;
+
+}
+
 .delete-button:hover {
   cursor: pointer;
   background-color: #cc1f1f;
 }
+/* a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+} */
 
 h1, h2 {
   text-align: center;
