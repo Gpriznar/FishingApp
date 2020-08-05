@@ -76,11 +76,10 @@ class PreviousFishList extends Component {
                 </div>
               </div>
               <div className='fish-buttons'>
-                <button
+                <a
                   className='location-button'
                   href={`https://www.latlong.net/c/?lat=${fish.latitude}&long=${fish.longitude}`}
-                  rel='noopener noreferrer'
-                  target="_blank"> <img src="pin.png" className='pin-icon' alt='' /> Location</button>
+                  target="_blank"> <img src="pin.png" className='pin-icon' alt='' /> Location</a>
                 <button
                   className='delete-button'
                   onClick={() => this.deleteFish(fish)}><img src="close.png" className='x-icon' alt='' /> Delete </button>
